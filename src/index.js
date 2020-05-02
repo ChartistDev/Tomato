@@ -32,13 +32,38 @@ var searchField = document.querySelector("#searchField");
 var sortRestaurant = document.querySelector("#sortRestaurant");
 var filterRestaurant = document.querySelector("#filterRestaurant");
     searchField.addEventListener("keyup", searchrestaurant);
-    sortRestaurant.addEventListener("change", sort)
-//var sortBynumber = (a, b) => a[];
-function sort() {
-    let option = sortRestaurant.value;
-        if(typeof data[0][option] === number) {
-            let newData = data.sort(sortBynumber);
+    sortRestaurant.addEventListener("change", mysort);
+
+ function dynamicSort(key, order = 'asc') {
+    return function(a, b) {
+        if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
+          // property doesn't exist on either object
+          return 0;
         }
+    
+        const varA = (typeof a[key] === 'string')
+          ? a[key].toUpperCase() : a[key];
+        const varB = (typeof b[key] === 'string')
+          ? b[key].toUpperCase() : b[key];
+    
+        let comparison = 0;
+        if (varA > varB) {
+          comparison = 1;
+        } else if (varA < varB) {
+          comparison = -1;
+        }
+        return (
+          (order === 'desc') ? (comparison * -1) : comparison
+        );
+      };
+ }   
+//var sortBynumber = (a, b) => a[];
+function mysort() {
+    let option = sortRestaurant.value;
+            let newData = data.sort(dynamicSort(option, 'asc'));
+                console.log(option);
+            clearPage();
+            displayRestaurants(newData);
 }
 function createCard(restaurant) {
     let data = restaurant;

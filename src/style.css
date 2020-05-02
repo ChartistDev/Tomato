@@ -1,18 +1,25 @@
 .card {
-    height: 100px;
-    width: 100px;
+    height: 300px;
+    width: 300px;
     margin: 10px;
     box-shadow: 0px 4px 8px 0px #3f3e3e;
     transition: 0.3s;
+    background: aliceblue;
 }
 .card:hover {
     box-shadow: 0px 4px 16px 0px #3f3e3e;
 }
 #restaurantList {
-    padding: 20px;
     display: flex;
     align-items: center;
 }
 #parentcontainer {
     margin: 20px;
+    height: 100vh;
+    width: 100vw;
+    /* background: url('https://wallpaperplay.com/walls/full/0/0/f/95124.jpg'); */
+}
+#searchField {
+    width: 60%;
+    margin:10px;
 }
