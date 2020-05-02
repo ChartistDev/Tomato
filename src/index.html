@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tomato</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    </head>
+    <body>
+        <div id = "parentcontainer">
+        <div>
+            <input id = "searchField" type = "text" placeholder="search">
+            <div onclick="toggleFavourites()"></div>
+        </div>
+        <div>
+        <select id = "sortRestaurant" >
+            <option name = "sort" value = "sort">Sort</option>
+            <option name = "rating" value = "rating">Rating</option>
+            <option name = "eta" value = "eta">ETA</option>
+            <option name = "name" value = "name">Name</option>
+        </select>
+        <select id = "filterRestaurant">
+            <option name = "filter" value = "filter">filter</option>
+            <option name = "American" value = "American">American</option>
+            <option name = "Chinese" value = "Chinese">Chinese</option>
+            <option name = "Indian" value = "Indian">Indian</option>
+            <option name = "Fast Food" value = "Fast Food">Fast Food</option>
+        </select>
+        </div>
+        <div id = "restaurantList">
+
+        </div>
+        </div>
+    </body>
+</html>
