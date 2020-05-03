@@ -37,10 +37,12 @@ var filterRestaurant = document.querySelector("#filterRestaurant");
     list.addEventListener("click", (e) => {
 
         toggleFavourites(e);
-    });
+    },true);
 
  function toggleFavourites(event) {
-    console.log(event.target);
+    // if(event.target.getAttribute('class') === 'card') {
+
+    // }
  }
 
  function dynamicSort(key, order = 'asc') {
@@ -66,7 +68,7 @@ var filterRestaurant = document.querySelector("#filterRestaurant");
         );
       };
  }   
-//var sortBynumber = (a, b) => a[];
+
 function mysort() {
     let option = sortRestaurant.value;
             let newData = data.sort(dynamicSort(option, 'asc'));
@@ -76,9 +78,6 @@ function mysort() {
 function createCard(restaurant) {
     let data = restaurant;
     let container = document.createElement("div");
-//    let heading = document.createElement("h3");
-//         heading.style.textAlign = "center";
-//         heading.appendChild(document.createTextNode(data.name));
     
      container.setAttribute("class", "card");
     let content = "<h3 style = 'text-align: center;'>"+ data.name + "</h3><h4 style = 'text-align: center; margin: 10px;'>Rating: "+ data.rating + "</h4><h4 style = 'text-align: center; margin: 10px;'> E.T.A: "+ data.ETA + "</h4>";

@@ -17,8 +17,7 @@ html,body {
 #restaurantList {
     display: flex;
     align-items: center;
-    flex-direction: row wrap;
-    background: #e792f8;
+    flex-wrap: wrap;
     margin: 10px;
 }
 #parentcontainer {
