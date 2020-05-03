@@ -28,11 +28,20 @@ function search(input) {
     displayRestaurants(newData);
 }
 
-var searchField = document.querySelector("#searchField");
+var searchField = document.querySelector("#searchFieldDiv").querySelector("input");
 var sortRestaurant = document.querySelector("#sortRestaurant");
+var list = document.querySelector("#restaurantList");
 var filterRestaurant = document.querySelector("#filterRestaurant");
     searchField.addEventListener("keyup", searchrestaurant);
     sortRestaurant.addEventListener("change", mysort);
+    list.addEventListener("click", (e) => {
+
+        toggleFavourites(e);
+    });
+
+ function toggleFavourites(event) {
+    console.log(event.target);
+ }
 
  function dynamicSort(key, order = 'asc') {
     return function(a, b) {
@@ -61,24 +70,25 @@ var filterRestaurant = document.querySelector("#filterRestaurant");
 function mysort() {
     let option = sortRestaurant.value;
             let newData = data.sort(dynamicSort(option, 'asc'));
-                console.log(option);
             clearPage();
             displayRestaurants(newData);
 }
 function createCard(restaurant) {
     let data = restaurant;
-   let container = document.createElement("div");
-   let heading = document.createElement("h3");
-        heading.appendChild(document.createTextNode(data.name));
-    container.setAttribute("class", "card");
-    container.appendChild(heading);
-    return (container);
+    let container = document.createElement("div");
+//    let heading = document.createElement("h3");
+//         heading.style.textAlign = "center";
+//         heading.appendChild(document.createTextNode(data.name));
+    
+     container.setAttribute("class", "card");
+    let content = "<h3 style = 'text-align: center;'>"+ data.name + "</h3><h4 style = 'text-align: center; margin: 10px;'>Rating: "+ data.rating + "</h4><h4 style = 'text-align: center; margin: 10px;'> E.T.A: "+ data.ETA + "</h4>";
+    container.innerHTML = content;
+    return container;
 }
 
 
 
 function displayRestaurants (restaurants) {
-    let list = document.querySelector("#restaurantList");
     let data = restaurants;
     if(data) {
         data.forEach(element => {
@@ -88,7 +98,6 @@ function displayRestaurants (restaurants) {
     }
 }
 function clearPage() {
-    let list = document.querySelector("#restaurantList");
     let firstChild = list.firstElementChild;
         while(firstChild) {
             firstChild.remove();

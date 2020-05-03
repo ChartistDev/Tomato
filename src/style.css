@@ -1,25 +1,45 @@
+html,body {
+    height: 100%;
+    min-height: 100%;
+}
 .card {
     height: 300px;
     width: 300px;
     margin: 10px;
-    box-shadow: 0px 4px 8px 0px #3f3e3e;
+    box-shadow: 0px 4px 8px 0px #181717;
     transition: 0.3s;
     background: aliceblue;
+    cursor: pointer;
 }
 .card:hover {
-    box-shadow: 0px 4px 16px 0px #3f3e3e;
+    box-shadow: 0px 8px 20px 0px #3f3e3e;
 }
 #restaurantList {
     display: flex;
     align-items: center;
+    flex-direction: row wrap;
+    background: #e792f8;
+    margin: 10px;
 }
 #parentcontainer {
     margin: 20px;
-    height: 100vh;
-    width: 100vw;
-    /* background: url('https://wallpaperplay.com/walls/full/0/0/f/95124.jpg'); */
+    height: 100%;
+    background: url('https://wallpaperplay.com/walls/full/0/0/f/95124.jpg');
 }
-#searchField {
+#searchFieldDiv {
     width: 60%;
-    margin:10px;
+    min-width: 100px;
+    position: relative; 
+    display: flex;
+    padding: 10px;
+}
+#searchFieldDiv > input {
+    width: 100%;
+    outline: 0;
+    height: 30px;
+    padding: 2px 23px 2px 30px;
+    background-color: #cd7cf3;
+    border-radius: 5px;
+    border: 1px solid #b8b4b4;
+    color: white;
 }
